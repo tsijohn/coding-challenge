@@ -1,2 +1,11 @@
 <!-- View for creating a new `Post` -->
-<!-- See http://guides.rubyonrails.org/form_helpers.html#dealing-with-basic-forms for more information -->
+<!-- Basic rails form -->
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  
+  <%= f.submit %>
+<% end %>
