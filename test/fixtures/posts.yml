@@ -1,9 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  title: MyString
-  body: MyString
-
-two:
-  title: MyString
-  body: MyString
+# Sample post object for tests
+test_post:
+  title: 'Test Blog Post'
+  body: 'Testing Blog Post'

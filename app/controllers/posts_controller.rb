@@ -20,7 +20,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    # Remove a `Post` from the database
+    # Removes a Post from the database
+    Post.find(params[:id]).destroy
+    redirect_to posts_url
   end
 
   private

@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
+  fixtures :posts
+  
   test 'should get index' do
     get posts_url
     assert_response :success
@@ -12,6 +14,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       post posts_path, params: create_post_params
     end
     assert_response :redirect
+  end
+
+  test "DELETE #destroy deletes the post" do
+    count = Post.all.count
+    delete post_path(posts(:test_post))
+    assert_response :redirect
+    assert_equal count - 1, Post.all.count
   end
 
   private
