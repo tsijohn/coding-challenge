@@ -16,6 +16,11 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
   end
 
+  test "GET #show returns post" do
+    get post_path(posts(:test_post))
+    assert_response 200
+  end
+
   test "DELETE #destroy deletes the post" do
     count = Post.all.count
     delete post_path(posts(:test_post))
