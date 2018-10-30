@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     # Return all `Post`
+    @posts = Post.all
   end
 
   def new

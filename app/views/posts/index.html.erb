@@ -1,1 +1,5 @@
 <!-- View for showing all `Post` -->
+<% @posts.each do |post| %>
+  <%= post.title %>
+  <%= post.body %>
+<% end %>
