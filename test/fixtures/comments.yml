@@ -1,9 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 # Sample post object for tests
-test_post:
-  title: 'Test Blog Post'
+test_comment:
   body: 'Testing Blog Post'
-
-test_post_with_comment:
-  title: 'Test Blog Post'
-  body: 'Testing Blog Post'
+  post: test_post_with_comment
