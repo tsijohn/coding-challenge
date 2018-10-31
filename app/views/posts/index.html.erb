@@ -32,7 +32,7 @@
     </row>
     <row>
       <div class="col-md-8 offset-md-6">      
-        <small><%= post.created_at.strftime("%B %d") %> *  <%= post.post_length_in_minutes %></small>
+        <small><%= post.created_at.strftime("%B %d") %> *  <%= post_length_in_minutes(post) %></small>
       </div>
     </row>
     <row>
