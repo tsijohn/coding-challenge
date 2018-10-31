@@ -2,6 +2,11 @@
 <div class = "container">
   <row>
     <div class="col-md-8 offset-md-2">      
+      <small><%= link_to("All Posts", posts_path) %></small>
+    </div>
+  </row>
+  <row>
+    <div class="col-md-8 offset-md-2">      
       <h1><%= @post.title %></h1>
       <%= @post.body %>
     </div>
