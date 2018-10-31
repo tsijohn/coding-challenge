@@ -11,7 +11,6 @@ class PostsController < ApplicationController
   def new
     # Return view to create a new Post
     @post = Post.new
-    @comment = Comment.new
   end
 
   def create
