@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   def index
-    # Return all `Post`
-    @posts = Post.all
+    if params[:search].present?
+      @posts = Post.search(params[:search])
+    else
+      # Return all `Post`
+      @posts = Post.all
+    end
   end
 
   def new

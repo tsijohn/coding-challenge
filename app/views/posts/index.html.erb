@@ -1,6 +1,22 @@
 <!-- View for showing all `Post` -->
 
 <div class = "container">
+  <row>
+    <div class="col-md-8 offset-md-7">    
+      <div class="form-inline">
+        <div class="row">
+          <div id="search-bar">
+            <%= form_tag posts_path, method: :get, class: "input-group", role: "search" do %>
+              <p>
+                <%= text_field_tag :search, params[:search], placeholder: 'Enter search...', class: "form-control" %>
+                <%= submit_tag "Search", name: nil, class: "btn btn-secondary" %>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </row>
   <% @posts.each do |post| %>
     <row>
       <div class="col-md-8 offset-md-2">      
