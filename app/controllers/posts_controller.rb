@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :post, only: [:show, :destroy]
+
   def index
     if params[:search].present?
       @posts = Post.search(params[:search])
@@ -25,18 +27,24 @@ class PostsController < ApplicationController
 
   def show
     # Show post
-    @post = Post.find(params[:id])
+    @post = post
     @comments = @post.comments
     @comment = Comment.new
   end
 
   def destroy
     # Removes a Post from the database
-    Post.find(params[:id]).destroy
-    redirect_to posts_url
+    @post = post
+    if @post.destroy
+      redirect_to posts_url
+    end
   end
 
   private
+
+  def post
+    @post ||= Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :body)
