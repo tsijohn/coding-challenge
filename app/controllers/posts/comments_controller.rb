@@ -1,5 +1,7 @@
 module Posts
   class CommentsController < ApplicationController
+    before_action :comment, only: [:show, :update, :destroy]
+
     def create
       @comment = post.comments.build(comment_params)
       @post = post
@@ -11,7 +13,7 @@ module Posts
     end
 
     def edit
-      @comment = Comment.find(params[:id])
+      @comment = comment
       @post = @comment.post
       respond_to do |format|
         format.js #replaces comment div with comment edit div
@@ -19,7 +21,7 @@ module Posts
     end
 
     def update
-      @comment = Comment.find(params[:id])
+      @comment = comment
       @post = @comment.post
 
       respond_to do |format|
@@ -31,7 +33,7 @@ module Posts
 
     def destroy
       # Removes a Post from the database
-      @comment = Comment.find(params[:id]).destroy
+      @comment = comment
       respond_to do |format|
         if @comment.destroy
           format.js #removes comment div
@@ -43,6 +45,10 @@ module Posts
 
     def comment_params
       params.require(:comment).permit(:body)
+    end
+
+    def comment
+      @comment ||= Comment.find(params[:id])
     end
 
     def post
