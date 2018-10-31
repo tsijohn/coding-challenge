@@ -3,12 +3,19 @@
   <head>
     <title>CodeingChallenge</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <!-- View for showing all `Post` -->
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand"><strong>Career Plug</strong></a>
+      <form class="form-inline">
+        <%= link_to 'New Post', new_post_path, :class => "btn btn-outline-success" %> 
+      </form>
+    </nav>
+    
     <%= yield %>
   </body>
 </html>
