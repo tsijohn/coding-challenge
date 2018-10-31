@@ -1,11 +1,23 @@
 <!-- View for creating a new `Post` -->
 <!-- Basic rails form -->
-<%= form_for @post do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-  
-  <%= f.submit %>
-<% end %>
+<div class = "container">
+  <%= form_for @post, html: {:class => "form-horizontal center"} do |f| %>
+    <div class="form-group">
+      <%= f.label :title, class: "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :body, class: "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <%= f.submit "Submit", class: "btn btn-default btn-lg btn-primary" %>  
+    </div>
+
+   <% end %>
+</div>
