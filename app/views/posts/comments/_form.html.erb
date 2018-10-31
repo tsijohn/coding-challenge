@@ -1,6 +1,6 @@
 <%= form_for [@post, @comment], :url => post_comments_path(@post), remote: true, html: {class: "col-md-12"} do |comment_fields| %>
   <div class="form-group">
-    <%= comment_fields.text_area :body, placeholder: "Write a comment...", class: "form-control", rows: "4" %>
+    <%= comment_fields.text_area :body, placeholder: "Write a comment...", required: true, class: "form-control", rows: "4" %>
   </div>
   <div class="text-right">    
     <%= comment_fields.submit "Post Comment", class: "col-md-6 pull-right btn btn-primary" %>
