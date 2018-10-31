@@ -32,6 +32,11 @@
     </row>
     <row>
       <div class="col-md-8 offset-md-6">      
+        <small><%= post.created_at.strftime("%B %d") %> *  <%= post.post_length_in_minutes %></small>
+      </div>
+    </row>
+    <row>
+      <div class="col-md-8 offset-md-6">      
         <%= link_to(post) do %>
           Comments: (<%= post.comments.count %>)
         <% end %>
