@@ -1,1 +1,1 @@
-$("#post_comment_<%= @comment.id %>").replaceWith("<%= escape_javascript(render :partial => "comment", :locals => {comment: @comment, post: @post}) %>");
+$("#post_comment_<%= @comment.id %>").replaceWith("<%= escape_javascript(render :partial => "show", :locals => {comment: @comment, post: @post}) %>");

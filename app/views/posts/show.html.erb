@@ -25,7 +25,7 @@
       </div>
       <div>
         <% @comments.each do |comment| %>
-          <%= render partial: "posts/comments/comment", locals: { comment: comment } %>
+          <%= render partial: "posts/comments/show", locals: { comment: comment } %>
         <% end %>
       </div>
       <div id = "last_comment">
