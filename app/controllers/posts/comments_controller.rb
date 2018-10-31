@@ -10,6 +10,35 @@ module Posts
       end
     end
 
+    def edit
+      @comment = Comment.find(params[:id])
+      @post = @comment.post
+      respond_to do |format|
+        format.js #replaces comment div with comment edit div
+      end
+    end
+
+    def update
+      @comment = Comment.find(params[:id])
+      @post = @comment.post
+
+      respond_to do |format|
+        if @comment.update(comment_params)
+          format.js #replaces comment edit div with comment div
+        end
+      end
+    end
+
+    def destroy
+      # Removes a Post from the database
+      @comment = Comment.find(params[:id]).destroy
+      respond_to do |format|
+        if @comment.destroy
+          format.js #removes comment div
+        end
+      end
+    end
+
     private
 
     def comment_params

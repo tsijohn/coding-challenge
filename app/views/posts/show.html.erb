@@ -7,6 +7,11 @@
     </div>
   </row>
   <row>
+    <div class="col-md-8 offset-md-8">
+      <%= link_to "Delete Post", @post, :method => :delete , data: {confirm: 'Are you sure?' }, class: "btn btn btn-danger" %>
+    </div>
+  </row>
+  <row>
     <div class="col-md-8 offset-md-2"> 
       <hr>
       <h1>Comments</h1>
