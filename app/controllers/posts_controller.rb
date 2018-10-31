@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def new
     # Return view to create a new Post
     @post = Post.new
+    @comment = Comment.new
   end
 
   def create
@@ -22,6 +23,8 @@ class PostsController < ApplicationController
   def show
     # Show post
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
   def destroy

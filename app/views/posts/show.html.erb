@@ -1,3 +1,25 @@
 <!-- View for showing a single `Post` -->
-<%= @post.title %>
-<%= @post.body %>
+<div class = "container">
+  <row>
+    <div class="col-md-8 offset-md-2">      
+      <h1><%= @post.title %></h1>
+      <%= @post.body %>
+    </div>
+  </row>
+  <row>
+    <div class="col-md-8 offset-md-2"> 
+      <hr>
+      <h1>Comments</h1>
+      <div id = "new_post_comment">
+        <%= render partial: "/posts/comments/form", locals: { post: @post, comment: @comment } %>
+      </div>
+      <div>
+        <% @comments.each do |comment| %>
+          <%= render partial: "posts/comments/comment", locals: { comment: comment } %>
+        <% end %>
+      </div>
+      <div id = "last_comment">
+      </div>
+    </div>
+  </row>
+</div>
