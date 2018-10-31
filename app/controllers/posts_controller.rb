@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = Post.create(post_params)
     # Add a new `Post` to the database
     if @post.save
-      redirect_to @post
+      redirect_to posts_path
     else
       render :new
     end
